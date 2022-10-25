@@ -20,9 +20,9 @@ while True:
     c, addr = s.accept()
     num = c.recv(1024).decode()
     print(addr)
-    print(f"Number: {num}")
+    print(f"String: {num}")
 
     if num == checkPalindrome(num):
-        c.send(bytes(f"Server: {num} is a palindrome number", 'utf-8'))
+        c.send(bytes(f"Server: {num} is palindrome", 'utf-8'))
     else:
-        c.send(bytes(f"Server: {num} is not a palindrome number", 'utf-8'))
+        c.send(bytes(f"Server: {num} is not palindrome", 'utf-8'))

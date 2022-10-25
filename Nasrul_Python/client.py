@@ -3,7 +3,7 @@ client = socket.socket()
 PORT = 1234
 
 client.connect(('localhost', PORT))
-num = input('Enter the number to be checked\n')
+num = input('Enter the string to be checked\n')
 num = str(num)
 
 client.send(bytes(num, 'utf-8'))
