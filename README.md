@@ -43,6 +43,7 @@ g++ client.cpp -o client
 3. Run the following commands
 
 ```bash
+npm install
 node server.js
 node client.js
 ```
@@ -57,6 +58,10 @@ node client.js
 3. Run the following commands
 
 ```bash
+sudo apt-get install python3
+sudo apt-get install python3-pip
+pip3 install socket
+pip3 install tabnanny
 python server.py
 python client.py
 ```
@@ -74,5 +79,3 @@ python client.py
 - [@Ausaf1](https://www.github.com/Ausaf1)
 - [@Malus-domestica](https://www.github.com/Malus-domestica)
 - [@nnasrul](https://www.github.com/nnasrul)
-
-
