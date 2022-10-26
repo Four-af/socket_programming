@@ -13,8 +13,8 @@ This is a mini project for academic purpose. It is a simple client server progra
 ```bash
 gcc server.c -o server
 gcc client.c -o client
-./server port_address
-./client ip_address port_address
+./server
+./client
 ```
 
 4. Enter the string in the client terminal and press enter.
