@@ -1,10 +1,14 @@
 # socket_programming
 
-This is a mini project for academic purpose. It is a simple client server program to detect whether the given string is palindrome or not.
+This is a mini project for academic purpose. It consists of several client server programs. The programs include:
+- Detecting whether the given string is palindrome or not.
+- Returning the datatype of client input.
+- Encryption and decption of client's message at server side in Rail Fence Cipher.
+
 
 ## How to run
 
-<h2>Runnng in C</h2>
+<h2>Running in C</h2>
 
 1. Clone the repository
 2. Open terminal and go to the directory where the repository is cloned
