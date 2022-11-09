@@ -1,10 +1,10 @@
 # socket_programming
 
 This is a mini project for academic purpose. It consists of several client server programs. The programs include:
-- Detecting whether the given string is palindrome or not.
-- Returning the datatype of client input.
-- Encryption and decption of client's message at server side in Rail Fence Cipher.
-- Encryption and decption of client's message at server side in Vigenère Cipher.
+- Detecting whether the given string is **palindrome** or not.
+- **Returning the datatype** of client input.
+- Encryption and decption of client's message at server side in **Rail Fence Cipher**.
+- Encryption and decption of client's message at server side in **Vigenère Cipher**.
 
 
 ## How to run
