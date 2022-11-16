@@ -17,6 +17,10 @@ socket.on("open", () => {
   sendMsg();
 });
 
+socket.on("message", (message) => {
+  console.log(message);
+});
+
 socket.on("error", () => {
   console.log("Error connecting to server");
 });
