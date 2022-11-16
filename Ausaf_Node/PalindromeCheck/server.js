@@ -24,9 +24,12 @@ wss.on("connection", (ws) => {
 
     // check if the message is a palindrome
     if (isPalindrome(message)) {
-      console.log("Server: " + message + " is a palindrome");
+      // show message in client side
+      ws.send("Server: " + message + " is a palindrome");
+      // console.log("Server: " + message + " is a palindrome");
     } else {
-      console.log("Server: " + message + " is not a palindrome");
+      // console.log("Server: " + message + " is not a palindrome");
+      ws.send("Server: " + message + " is not a palindrome");
     }
 
     //message trigger for every message received from client for continuous chat
