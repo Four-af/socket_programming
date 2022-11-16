@@ -18,7 +18,7 @@ socket.on("open", () => {
 });
 
 socket.on("message", (message) => {
-  console.log(message);
+  console.log("" + message);
 });
 
 socket.on("error", () => {
