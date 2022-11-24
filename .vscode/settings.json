@@ -1,4 +1,10 @@
 {
     "editor.tabCompletion": "on",
     "diffEditor.codeLens": true
+    "files.associations": {
+        "sstream": "cpp",
+        "ostream": "cpp",
+        "fstream": "cpp",
+        "iostream": "cpp"
+    }
 }
