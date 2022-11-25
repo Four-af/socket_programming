@@ -2,67 +2,64 @@ const WebSocket = require("ws");
 const socket = new WebSocket("ws://localhost:5000");
 const readline = require("readline");
 
-//singleton readline interface
 let rl;
-let message;
 
-/**
- * @description
- * 1. socket.on('open') is triggered when the client is connected to the server
- * 2. socket.on('message') is triggered when the client receives a message from the server
- * 3. socket.on('error') is triggered when the client encounters an error
- */
 socket.on("open", () => {
   console.log("Connected to server");
-
-  sendMsg();
-});
-
-socket.on("message", (message) => {
-  console.log("\nServer: " + message);
-  //message trigger for every message received from server for continuous chat
-  sendMsg();
+  sendmsg1();
 });
 
 socket.on("error", () => {
   console.log("Error connecting to server");
 });
 
-// substitution_cipher
-const encrypt = (message, key) => {};
-/**
- * @description
- * Method for sending messages to server
- */
-const sendMsg = () => {
-  //closing the previous readline
-  if (rl) rl.close();
+//to accept message
+const sendmsg1 = () => {
+  console.log("Enter message: ");
+  if (rl) rl.close(); //closing previous readline
 
-  //creating a new readline
+  //creating new readline
   rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
   });
-  rl.question(">> ", (msg) => {
-    message = msg;
-    //message trigger for every message sent from client for continuous chat
-    sendMsg1();
+  rl.question(">>", (message) => {
+    console.log("Enter key: ");
+    sendmsg2(message);
   });
 };
 
-const sendMsg1 = () => {
-  //closing the previous readline
-  if (rl) rl.close();
+//to accept key
+const sendmsg2 = (message) => {
+  if (rl) rl.close(); //closing previous readline
 
-  //creating a new readline
+  //creating new readline
   rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
   });
-  rl.question(">> ", (key) => {
+  rl.question(">>", (key) => {
     encrypted_msg = encrypt(message, key);
-    socket.send(encrypted_msg);
-
-    sendMsg();
+    socket.send("" + encrypted_msg);
+    sendmsg1();
   });
+};
+
+const encrypt = (message, key) => {
+  let encrypted = "";
+  key = Number(key);
+  let code, new_char;
+
+  for (i = 0; i < message.length; i++) {
+    code = message.charCodeAt(i);
+    new_char = message[i];
+    if (code >= 65 && code <= 90) {
+      new_char = String.fromCharCode(((code - 65 + key) % 26) + 65);
+    } else if (code >= 97 && code <= 122) {
+      new_char = String.fromCharCode(((code - 97 + key) % 26) + 97);
+    }
+    encrypted += new_char;
+  }
+  console.log("Encrypted msg: " + encrypted);
+  return encrypted;
 };

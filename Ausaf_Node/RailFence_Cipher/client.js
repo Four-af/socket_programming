@@ -65,6 +65,7 @@ const encrypt = (message, key) => {
  */
 const sendMsg = () => {
   //closing the previous readline
+  console.log("Enter message: ");
   if (rl) rl.close();
 
   //creating a new readline
@@ -81,6 +82,7 @@ const sendMsg = () => {
 
 const sendMsg1 = () => {
   //closing the previous readline
+  console.log("Enter key: ");
   if (rl) rl.close();
 
   //creating a new readline
@@ -91,7 +93,8 @@ const sendMsg1 = () => {
   rl.question(">> ", (key) => {
     encrypted_msg = encrypt(message, key);
     socket.send(encrypted_msg);
-
-    sendMsg();
+    setTimeout(() => {
+      sendMsg();
+    }, 3000);
   });
 };

@@ -24,6 +24,7 @@ wss.on("connection", (ws) => {
 
   //To accept key
   const getKey = (message) => {
+    console.log("Enter key: ");
     //closing the previous readline
     if (rl) rl.close();
 
@@ -58,7 +59,7 @@ wss.on("connection", (ws) => {
       }
       decrypted += c;
     }
-    console.log("Decrypted message: " + decrypted);
+    ws.send(decrypted);
     return decrypted;
   };
 
