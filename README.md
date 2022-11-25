@@ -5,6 +5,7 @@ This is a mini project for academic purpose. It consists of several client serve
 - **Returning the datatype** of client input.
 - Encryption and decption of client's message at server side in **Rail Fence Cipher**.
 - Encryption and decption of client's message at server side in **Vigenère Cipher**.
+- Encryption and decption of client's message at server side in **Substitution Cipher**.
 
 
 ## How to run
