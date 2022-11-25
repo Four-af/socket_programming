@@ -24,6 +24,7 @@ wss.on("connection", (ws) => {
 
   //To accept key
   const getKey = (message) => {
+    console.log("Enter key: ");
     //closing the previous readline
     if (rl) rl.close();
 
