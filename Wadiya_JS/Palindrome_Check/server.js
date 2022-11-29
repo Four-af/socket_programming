@@ -9,14 +9,12 @@ wss.on("connection", (ws) => {
 
   ws.on("message", (message) => {
     console.log("\nClient: " + message);
-
-    // check if the message is a palindrome
     if (isPalindrome(message)) {
     ws.send("Server: "+ message +" is a Palindrome!");
-    //   console.log("Server: " + message + " is a palindrome");
+    console.log("Server: " + message + " is a palindrome");
     } else {
     ws.send("Server: "+ message +" is not a Palindrome!");
-    //   console.log("Server: " + message + " is not a palindrome");
+    console.log("Server: " + message + " is not a palindrome");
     }
     sendMsg();
   });

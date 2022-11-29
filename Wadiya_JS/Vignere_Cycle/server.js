@@ -19,26 +19,26 @@ wss.on("connection", (ws) => {
   ws.on("message", (message) => {
     console.log("\nClient: " + message);
     //pass the message to getKey() function which will later call decrypt function
-    console.log("Enter Key: ");
     getKey(message);
   });
 
-//To accept key
-const getKey = (message) => {
-  //closing the previous readline
-  if (rl) rl.close();
+  //To accept key
+  const getKey = (message) => {
+    console.log("Enter key: ");
+    //closing the previous readline
+    if (rl) rl.close();
 
-  //creating a new readline
-  rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-  rl.question(">> ", (key) => {
-    decrypted_msg = decrypt(message, key);
-  });
-};
+    //creating a new readline
+    rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+    });
+    rl.question(">> ", (key) => {
+      decrypted_msg = decrypt(message, key);
+    });
+  };
 
-const decrypt = (message, key) => {
+  const decrypt = (message, key) => {
     message = message.toString();
     console.log("Message: " + message + "  Key: " + key + "\n");
     let decrypted = "";
@@ -59,7 +59,8 @@ const decrypt = (message, key) => {
       }
       decrypted += c;
     }
-    console.log("Decrypted message: " + decrypted);
+    console.log("Decrypted Message: "+ decrypted);
+    ws.send(decrypted);
     return decrypted;
   };
 
